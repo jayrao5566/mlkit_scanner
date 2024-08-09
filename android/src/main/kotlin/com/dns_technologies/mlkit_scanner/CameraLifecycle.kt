@@ -14,6 +14,10 @@ import androidx.lifecycle.LifecycleRegistry
 class CameraLifecycle : LifecycleOwner {
     private var lifecycleRegistry: LifecycleRegistry = LifecycleRegistry(this)
 
+    override fun getLifecycle(): Lifecycle {
+        return lifecycleRegistry;
+    }
+
     init {
         lifecycleRegistry.currentState = Lifecycle.State.CREATED
     }
@@ -36,8 +40,5 @@ class CameraLifecycle : LifecycleOwner {
         lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
     }
 
-    override fun getLifecycle(): Lifecycle {
-        return lifecycleRegistry;
-    }
 
 }
