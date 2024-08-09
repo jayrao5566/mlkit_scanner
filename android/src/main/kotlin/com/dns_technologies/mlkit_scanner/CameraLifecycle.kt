@@ -18,8 +18,6 @@ class CameraLifecycle : LifecycleOwner {
         lifecycleRegistry.currentState = Lifecycle.State.CREATED
     }
 
-    override fun getLifecycle() = lifecycleRegistry
-
     /** Invoke after initialisation or pause camera */
     fun resume() {
         lifecycleRegistry.currentState = Lifecycle.State.RESUMED
@@ -37,4 +35,9 @@ class CameraLifecycle : LifecycleOwner {
     fun dispose() {
         lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
     }
+
+    override fun getLifecycle(): Lifecycle {
+        return lifecycleRegistry;
+    }
+
 }
