@@ -19,12 +19,14 @@ class CameraLifecycle : LifecycleOwner {
     }
 
     init {
-        lifecycleRegistry.currentState = Lifecycle.State.CREATED
+        lifecycleRegistry.markState(Lifecycle.State.CREATED);
+//        lifecycleRegistry.currentState = Lifecycle.State.CREATED
     }
 
     /** Invoke after initialisation or pause camera */
     fun resume() {
-        lifecycleRegistry.currentState = Lifecycle.State.RESUMED
+        lifecycleRegistry.markState(Lifecycle.State.RESUMED);
+//        lifecycleRegistry.currentState = Lifecycle.State.RESUMED
     }
 
     /**
@@ -32,12 +34,14 @@ class CameraLifecycle : LifecycleOwner {
      * but it also does not require clearing the camera resources
      */
     fun pause() {
-        lifecycleRegistry.currentState = Lifecycle.State.CREATED
+        lifecycleRegistry.markState(Lifecycle.State.CREATED);
+//        lifecycleRegistry.currentState = Lifecycle.State.CREATED
     }
 
     /** Clear camera resources */
     fun dispose() {
-        lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
+        lifecycleRegistry.markState(Lifecycle.State.DESTROYED);
+//        lifecycleRegistry.currentState = Lifecycle.State.DESTROYED
     }
 
 
